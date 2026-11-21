@@ -8,7 +8,7 @@ server:
         same-site: lax
   error:
     include-message: never 
-    include-stacktrace: never
+    include-stacktrace: never 
 
 spring:
   application:
