@@ -1,0 +1,6 @@
+# Optional: quick try-out without MySQL.  Run with  -Dspring-boot.run.profiles=h2
+spring:
+  datasource:
+    url: jdbc:h2:file:./data/moneytracker
+    username: sa
+    password:

@@ -1,0 +1,35 @@
+server:
+  port: ${PORT:8080}
+  servlet:
+    session:
+      timeout: 8h
+      cookie:
+        http-only: true
+        same-site: lax
+  error:
+    include-message: never
+    include-stacktrace: never
+
+spring:
+  application:
+    name: moneytracker
+  datasource:
+    # MySQL 8+. The database is created automatically if your MySQL user is allowed to.
+    url: "${DB_URL:jdbc:mysql://localhost:3306/moneytracker?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC}"
+    username: ${DB_USER:root}
+    password: ${DB_PASSWORD:Abhay@30}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 2MB
+
+app:
+  security:
+    # Secret mixed into every PIN before hashing. Set your own value (any text) via the
+    # PIN_PEPPER environment variable BEFORE creating accounts. Changing it later
+    # means existing users can no longer sign in.
+    pepper: ${PIN_PEPPER:dev-only-change-me}
