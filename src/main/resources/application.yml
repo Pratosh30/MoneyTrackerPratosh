@@ -7,7 +7,7 @@ server:
         http-only: true
         same-site: lax
   error:
-    include-message: never
+    include-message: never 
     include-stacktrace: never
 
 spring:
